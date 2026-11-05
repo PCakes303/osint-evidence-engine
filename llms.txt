@@ -1,0 +1,13 @@
+# OSINT Evidence Engine
+
+- Purpose: public non-personal evidence manifests, content digests and deterministic chain verification.
+- Maturity: scaffolded; no collection, persistence, signatures or trusted timestamping.
+- Start: README.md
+- Contract: docs/EVIDENCE-CONTRACT.md
+- Threat model: docs/THREAT-MODEL.md
+- Integration gates: docs/INTEGRATION-GATES.md
+- Schemas: schemas/
+- Library: osint_evidence/
+- Tests: tests/
+- Dependencies: osint-collection, audit-provenance, secure-supply-chain, emergency-control, compliance-governance (declared only).
+- License: scoped mixed-license policy in LICENSE.md; file-level provenance and redistribution review remains required.
