@@ -1,0 +1,45 @@
+{
+  "capabilities_version": "1.1.0",
+  "repository": "osint-evidence-engine",
+  "repository_id": "osint-evidence",
+  "maturity": "scaffolding",
+  "capabilities": [
+    {
+      "id": "osint.evidence.manifest",
+      "name": "Public evidence manifest validation",
+      "status": "tested",
+      "description": "Builds and validates bounded metadata manifests and SHA-256 digests for caller-supplied public non-personal bytes.",
+      "evidence": [
+        "osint_evidence/records.py",
+        "schemas/evidence-manifest.schema.json",
+        "tests/test_records.py"
+      ],
+      "limitations": [
+        "Does not fetch or persist evidence and does not authenticate source or collector."
+      ]
+    },
+    {
+      "id": "osint.evidence.chain",
+      "name": "Deterministic chain-of-custody event verification",
+      "status": "tested",
+      "description": "Creates and verifies ordered hash-linked evidence metadata events.",
+      "evidence": [
+        "osint_evidence/chain.py",
+        "tests/test_chain.py"
+      ],
+      "limitations": [
+        "Hash chain is not a signature, trusted timestamp, immutable storage or legal chain-of-custody certification."
+      ]
+    }
+  ],
+  "explicit_non_capabilities": [
+    "Network collection or source retrieval",
+    "Durable or WORM evidence storage",
+    "Digital signatures, key custody or trusted timestamping",
+    "Legal chain-of-custody certification",
+    "Personal or sensitive data storage",
+    "Retention and legal-hold management",
+    "Authenticated source/actor verification",
+    "Compliance certification"
+  ]
+}
