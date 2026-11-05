@@ -1,0 +1,73 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://schemas.mrcakes931.dev/osint/evidence-chain/1.0.0",
+  "title": "Evidence Chain of Custody",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "chain_version",
+    "events"
+  ],
+  "properties": {
+    "chain_version": {
+      "const": "1.0"
+    },
+    "events": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "event_id",
+          "timestamp",
+          "event_type",
+          "actor_id",
+          "details_sha256",
+          "previous_hash",
+          "event_hash"
+        ],
+        "properties": {
+          "event_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "event_type": {
+            "enum": [
+              "captured",
+              "verified",
+              "transformed",
+              "accessed",
+              "exported",
+              "deleted"
+            ]
+          },
+          "actor_id": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 128
+          },
+          "details_sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "previous_hash": {
+            "type": [
+              "string",
+              "null"
+            ],
+            "pattern": "^[a-f0-9]{64}$"
+          },
+          "event_hash": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    }
+  }
+}
