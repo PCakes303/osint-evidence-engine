@@ -6,7 +6,7 @@
   "name": "osint-evidence-engine",
   "version": "0.1.0",
   "visibility": "public",
-  "maturity": "scaffolded",
+  "maturity": "scaffolding",
   "summary": "Local validation of public non-personal evidence records, content digests and provenance references. No collection, trusted timestamping, immutable storage or chain-of-custody certification.",
   "license": {
     "expression": null,
