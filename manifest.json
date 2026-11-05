@@ -1,0 +1,18 @@
+{
+  "manifest_version": "1.0.0",
+  "id": "osint-evidence",
+  "name": "osint-evidence-engine",
+  "version": "0.1.0",
+  "maturity": "scaffolded",
+  "role": "Public non-personal evidence manifests, content digests, provenance references and deterministic chain verification; no storage or collection.",
+  "dependencies": [
+    "osint-collection",
+    "audit-provenance",
+    "secure-supply-chain",
+    "emergency-control",
+    "compliance-governance"
+  ],
+  "entrypoint": "osint_evidence/records.py",
+  "license_status": "scoped-mixed-license-policy; file-level-provenance-review-pending",
+  "execution_authority": false
+}
