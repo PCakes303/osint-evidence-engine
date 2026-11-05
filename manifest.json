@@ -1,18 +1,63 @@
 {
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/PCakes303/osint-evidence-engine/blob/main/manifest.json",
   "manifest_version": "1.0.0",
   "id": "osint-evidence",
   "name": "osint-evidence-engine",
   "version": "0.1.0",
+  "visibility": "public",
   "maturity": "scaffolded",
-  "role": "Public non-personal evidence manifests, content digests, provenance references and deterministic chain verification; no storage or collection.",
+  "summary": "Local validation of public non-personal evidence records, content digests and provenance references. No collection, trusted timestamping, immutable storage or chain-of-custody certification.",
+  "license": {
+    "expression": null,
+    "status": "pending-review",
+    "notes": "Scoped mixed-license strategy; file-level provenance and third-party license review remains open."
+  },
+  "interfaces": [],
   "dependencies": [
-    "osint-collection",
-    "audit-provenance",
-    "secure-supply-chain",
-    "emergency-control",
-    "compliance-governance"
+    {
+      "id": "osint-collection",
+      "constraint": "*",
+      "kind": "contract"
+    },
+    {
+      "id": "audit-provenance",
+      "constraint": "*",
+      "kind": "contract"
+    },
+    {
+      "id": "secure-supply-chain",
+      "constraint": "*",
+      "kind": "contract"
+    },
+    {
+      "id": "emergency-control",
+      "constraint": "*",
+      "kind": "contract"
+    },
+    {
+      "id": "compliance-governance",
+      "constraint": "*",
+      "kind": "contract"
+    }
   ],
-  "entrypoint": "osint_evidence/records.py",
-  "license_status": "scoped-mixed-license-policy; file-level-provenance-review-pending",
-  "execution_authority": false
+  "entrypoints": [
+    "osint_evidence/records.py"
+  ],
+  "security": {
+    "threat_model": "docs/THREAT-MODEL.md",
+    "secrets_in_repository": false,
+    "data_classification": "public",
+    "security_contact": null
+  },
+  "repository_url": "https://github.com/PCakes303/osint-evidence-engine",
+  "default_branch": "main",
+  "compatibility": [],
+  "evidence": [
+    {
+      "claim": "Local tests exercise evidence record and digest-chain validation; they do not establish authenticity, trusted timestamps, immutable storage or chain of custody.",
+      "kind": "test",
+      "location": "tests/test_records.py"
+    }
+  ]
 }
